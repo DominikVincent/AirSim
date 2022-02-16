@@ -29,6 +29,9 @@ namespace airlib
         real_T horizontal_FOV_end = 359;
         real_T vertical_FOV_upper = -15; // drones -15, car +10
         real_T vertical_FOV_lower = -45; // drones -45, car -10
+        real_T noise_x = 0.01;
+        real_T noise_y = 0.01;
+        real_T noise_z = 0.01;
 
         Pose relative_pose{
             Vector3r(0, 0, -1), // position - a little above vehicle (especially for cars) or Vector3r::Zero()
@@ -55,6 +58,9 @@ namespace airlib
             draw_debug_points = settings_json.getBool("DrawDebugPoints", draw_debug_points);
             data_frame = settings_json.getString("DataFrame", data_frame);
             external_controller = settings_json.getBool("ExternalController", external_controller);
+            noise_x = settings_json.getFloat("noise_x", noise_x);
+            noise_y = settings_json.getFloat("noise_y", noise_y);
+            noise_z = settings_json.getFloat("noise_z", noise_z);
 
             vertical_FOV_upper = settings_json.getFloat("VerticalFOVUpper", Utils::nan<float>());
 
