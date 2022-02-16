@@ -96,6 +96,10 @@ __pragma(warning(disable : 4239))
         {
             return pimpl_->client.call("isApiControlEnabled", vehicle_name).as<bool>();
         }
+        string RpcLibClientBase::simSpawnObject(const string& object_name, const string& asset_name, const Pose& pose, const Vector3r& scale, const bool physics_enabled)
+        {
+            return pimpl_->client.call("simSpawnObject", object_name, asset_name, RpcLibAdaptorsBase::Pose(pose), RpcLibAdaptorsBase::Vector3r(scale), physics_enabled).as<string>();
+        }
         int RpcLibClientBase::getClientVersion() const
         {
             return 1; //sync with Python client

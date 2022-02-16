@@ -41,6 +41,11 @@ namespace airlib
         void confirmConnection();
         void reset();
 
+
+        // custom ones
+        string simSpawnObject(const string& object_name, const string& asset_name, const Pose& pose, const Vector3r& scale, const bool physics_enabled);
+
+
         ConnectionState getConnectionState();
         bool ping();
         int getClientVersion() const;
