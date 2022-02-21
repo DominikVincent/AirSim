@@ -508,10 +508,11 @@ __pragma(warning(disable : 4239))
             return pimpl_->client.call("simLoadLevel", level_name).as<bool>();
         }
 
-        std::string RpcLibClientBase::simSpawnObject(const std::string& object_name, const std::string& load_component, const Pose& pose,
-                                                     const Vector3r& scale, bool physics_enabled)
+        std::string RpcLibClientBase::simSpawnObject(const std::string &object_name, const std::string &load_component,
+                                                     const Pose &pose,
+                                                     const Vector3r &scale, bool physics_enabled, bool is_blueprint)
         {
-            return pimpl_->client.call("simSpawnObject", object_name, load_component, RpcLibAdaptorsBase::Pose(pose), RpcLibAdaptorsBase::Vector3r(scale), physics_enabled).as<std::string>();
+            return pimpl_->client.call("simSpawnObject", object_name, load_component, RpcLibAdaptorsBase::Pose(pose), RpcLibAdaptorsBase::Vector3r(scale), physics_enabled, is_blueprint).as<std::string>();
         }
 
         bool RpcLibClientBase::simDestroyObject(const std::string& object_name)
