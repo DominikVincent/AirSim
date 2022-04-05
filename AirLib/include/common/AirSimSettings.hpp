@@ -157,6 +157,7 @@ namespace airlib
             float target_gamma = Utils::nan<float>(); //1.0f; //This would be reset to kSceneTargetGamma for scene as default
             int projection_mode = 0; // ECameraProjectionMode::Perspective
             float ortho_width = Utils::nan<float>();
+            bool do_color_transform = false;
         };
 
         struct NoiseSetting
@@ -1076,6 +1077,7 @@ namespace airlib
                 throw std::invalid_argument(std::string("CaptureSettings projection_mode has invalid value in settings_json ") + projection_mode);
 
             capture_setting.ortho_width = settings_json.getFloat("OrthoWidth", capture_setting.ortho_width);
+            capture_setting.do_color_transform = settings_json.getBool("do_color_transform", capture_setting.do_color_transform);
         }
 
         static void loadSubWindowsSettings(const Settings& settings_json, std::vector<SubwindowSetting>& subwindow_settings)
