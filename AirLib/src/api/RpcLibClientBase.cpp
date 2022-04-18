@@ -132,6 +132,9 @@ __pragma(warning(disable : 4239))
             while (getConnectionState() != RpcLibClientBase::ConnectionState::Connected) {
                 std::cout << "X" << std::flush;
                 clock->sleep_for(pause_time);
+                if(pause_time > 15){
+                  std::exit(0);
+                }
             }
             std::cout << std::endl
                       << "Connected!" << std::endl;

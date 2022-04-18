@@ -37,6 +37,7 @@ namespace airlib
             ImageCaptureBase::ImageType image_type = ImageCaptureBase::ImageType::Scene;
             bool pixels_as_float = false;
             bool compress = true;
+            bool do_color_transform = false;
 
             ImageRequest()
             {
@@ -68,6 +69,7 @@ namespace airlib
             bool compress = true;
             int width = 0, height = 0;
             ImageType image_type;
+            bool do_color_transform = false;
         };
 
     public: //methods
